@@ -16,12 +16,14 @@ public class CatStats : ScriptableObject {
 
     // always start unoccupied
     public bool agentOccupied = false;
+
+    // initially no noise
+    public bool loudNoise = false;
+
     private string identifier; //name
     private Toys favToy;
     // for looking
     public float lookSphereCastRadius = 1f;
-
-
 }
 
 
