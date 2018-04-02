@@ -290,6 +290,7 @@
     <Compile Include="Assets\ScriptableObjects\CatStats.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\Decision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LookDecision.cs" />
+    <Compile Include="Assets\ScriptableObjects\Decision Scripts\LoudNoiseDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\State.cs" />
     <Compile Include="Assets\ScriptableObjects\StateController.cs" />
     <Compile Include="Assets\ScriptableObjects\Transition.cs" />

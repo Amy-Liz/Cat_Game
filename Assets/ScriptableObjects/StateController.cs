@@ -6,8 +6,8 @@ public class StateController : MonoBehaviour
 {
 
 
-    //public GameObject[] waypoints;
     public State currentState;
+    // for staying in current state
     public State remainState;
     public CatStats catStats;
 
@@ -32,21 +32,6 @@ public class StateController : MonoBehaviour
         aiActive = true;
 
     }
-
-    ////void SetUpAI(bool aiActivaionFromAgentManager, List<Transform> wayPointsFromAgentManager)
-    //void SetUpAI(bool aiActivaionFromAgentManager)
-    //{
-    //    aiActive = aiActivaionFromAgentManager;
-
-    //    if (aiActive)
-    //    {
-    //        navMeshAgent.enabled = true;
-    //    }
-    //    else
-    //    {
-    //        navMeshAgent.enabled = false;
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()
