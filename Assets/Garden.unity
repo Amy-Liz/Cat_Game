@@ -313,6 +313,8 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: be631bcb62e65494d9430cba009a7a23, type: 2}
   remainState: {fileID: 0}
   catStats: {fileID: 0}
+  catName: Jeff
+  favToy: 
   eyes: {fileID: 87484232}
   wayPointList:
   - {fileID: 1583293262}
@@ -731,6 +733,8 @@ MonoBehaviour:
   currentState: {fileID: 0}
   remainState: {fileID: 0}
   catStats: {fileID: 0}
+  catName: 
+  favToy: 
   eyes: {fileID: 1712137932}
   wayPointList: []
   nextWayPoint: 0
@@ -1276,6 +1280,8 @@ MonoBehaviour:
   currentState: {fileID: 0}
   remainState: {fileID: 0}
   catStats: {fileID: 0}
+  catName: 
+  favToy: 
   eyes: {fileID: 979835934}
   wayPointList: []
   nextWayPoint: 0

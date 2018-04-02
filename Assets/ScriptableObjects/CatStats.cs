@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class CatStats : ScriptableObject {
 
+    // TODO: Hide values via get/set methods
+
     // all possible toys
-    enum Toys
+    public enum Toys
     {
         Yarn,
         Mouse,
@@ -14,16 +15,21 @@ public class CatStats : ScriptableObject {
         Feather
     };
 
-    // always start unoccupied
-    public bool agentOccupied = false;
+    public string identifier; //name
+    public Toys favToy;
 
+    // always start unoccupied
+    public bool isOccupied = false;
     // initially no noise
     public bool loudNoise = false;
+    public bool hasToy = false;
+    public bool hasTreat = false;
 
-    private string identifier; //name
-    private Toys favToy;
-    // for looking
-    public float lookSphereCastRadius = 1f;
+    public CatStats(string identifier, string favToy)
+    {
+        this.identifier = identifier;
+        this.favToy = (Toys) Enum.Parse(typeof(Toys),favToy);
+    }
 }
 
 

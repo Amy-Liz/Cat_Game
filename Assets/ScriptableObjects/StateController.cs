@@ -10,6 +10,8 @@ public class StateController : MonoBehaviour
     // for staying in current state
     public State remainState;
     public CatStats catStats;
+    public string catName;
+    public string favToy;
 
     // eyes of agent
     public Transform eyes;
@@ -30,6 +32,7 @@ public class StateController : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.enabled = true;
         aiActive = true;
+        catStats = new CatStats(catName,favToy);
 
     }
 
