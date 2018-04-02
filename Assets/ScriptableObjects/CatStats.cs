@@ -8,12 +8,12 @@ public class CatStats : ScriptableObject {
     // all possible toys
     public enum Toys
     {
-        Yarn,
-        Mouse,
-        Ball,
-        Bell,
-        Feather,
-        None,
+        yarn,
+        mouse,
+        ball,
+        bell,
+        feather,
+        none,
     };
 
     public string identifier; //name
@@ -31,7 +31,7 @@ public class CatStats : ScriptableObject {
     public CatStats(string identifier, string favToy)
     {
         this.identifier = identifier;
-        this.favToy = (Toys) Enum.Parse(typeof(Toys), favToy.ToUpper());
+        this.favToy = (Toys) Enum.Parse(typeof(Toys), favToy.ToLower());
     }
 
     public void CheckToy()
@@ -45,7 +45,7 @@ public class CatStats : ScriptableObject {
         }
 
         // special case for friendly agent with no fav
-        if(hasToy && favToy == Toys.None)
+        if(hasToy && favToy == Toys.none)
         {
             hasFavToy = true;
         }
