@@ -314,7 +314,7 @@ MonoBehaviour:
   remainState: {fileID: 0}
   catStats: {fileID: 0}
   catName: Jeff
-  favToy: 
+  favToy: none
   eyes: {fileID: 87484232}
   wayPointList:
   - {fileID: 1583293262}

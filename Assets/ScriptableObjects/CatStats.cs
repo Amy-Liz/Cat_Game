@@ -12,7 +12,8 @@ public class CatStats : ScriptableObject {
         Mouse,
         Ball,
         Bell,
-        Feather
+        Feather,
+        None,
     };
 
     public string identifier; //name
@@ -23,12 +24,31 @@ public class CatStats : ScriptableObject {
     // initially no noise
     public bool loudNoise = false;
     public bool hasToy = false;
+    public Toys currentToy;
+    public bool hasFavToy = false;
     public bool hasTreat = false;
 
     public CatStats(string identifier, string favToy)
     {
         this.identifier = identifier;
-        this.favToy = (Toys) Enum.Parse(typeof(Toys),favToy);
+        this.favToy = (Toys) Enum.Parse(typeof(Toys), favToy.ToUpper());
+    }
+
+    public void CheckToy()
+    {
+        if (hasToy)
+        {
+            if(currentToy == favToy)
+            {
+                hasFavToy = true;
+            }
+        }
+
+        // special case for friendly agent with no fav
+        if(hasToy && favToy == Toys.None)
+        {
+            hasFavToy = true;
+        }
     }
 }
 

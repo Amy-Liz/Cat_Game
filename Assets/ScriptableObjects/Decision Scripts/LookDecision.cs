@@ -7,11 +7,7 @@ public class LookDecision : Decision
 {
     public override bool Decide(StateController controller)
     {
-
-        bool agentVisible = Look(controller);
-
-        // placeholder to remove error
-        return agentVisible;
+        return Look(controller);
     }
 
     private bool Look(StateController controller)
