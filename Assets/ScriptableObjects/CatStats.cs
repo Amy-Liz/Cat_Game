@@ -50,6 +50,11 @@ public class CatStats : ScriptableObject {
             hasFavToy = true;
         }
     }
+
+    public void GiveToy(string toy)
+    {
+        currentToy = (Toys)Enum.Parse(typeof(Toys), toy);
+    }
 }
 
 

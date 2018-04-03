@@ -28,6 +28,9 @@ public class StateController : MonoBehaviour
     private Vector3 mousePos;
     private bool mouseClick = false;
 
+    private bool showToysMenu = false;
+    private bool showOptionsMenu = false;
+
     // Use this for initialization
     void Start()
     {
@@ -42,7 +45,6 @@ public class StateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (!aiActive)
         {
             return;
@@ -50,6 +52,19 @@ public class StateController : MonoBehaviour
 
         //check if AI is active first
         currentState.UpdateState(this);
+
+        if (catStats.hasTreat)
+        {
+            treatCounter++;
+        }
+
+        if (showToysMenu)
+        {
+            Debug.Log("I should be showing a new menu");
+
+            Rect window = new Rect(0, 0, 200, 100);
+            window = GUI.Window(1, window, ToysWindow, "Toys");
+        }
     }
 
     void OnDrawGizmos()
@@ -92,17 +107,60 @@ public class StateController : MonoBehaviour
 
     private void OnMouseExit()
     {
-        mouseOver = false;
-        mouseClick = false;
+        //mouseOver = false;
+        //mouseClick = false;
         Debug.Log("MouseOver is no longer true");
     }
 
     private void OnGUI()
     {
-        if (mouseOver && mouseClick)
+        if(mouseOver && mouseClick)
         {
-            Debug.Log("I should be drawing a box rn");
-            GUI.Box(new Rect(mousePos.x, mousePos.y, 200f, 100f), "this is a test");
+            showOptionsMenu = true;
         }
+
+        if (showOptionsMenu)
+        {
+
+            Rect rect = new Rect(gameObject.transform.position.x, gameObject.transform.position.y, 200, 100);
+
+            rect = GUI.Window(0, rect, OptionsWindow, "Options");
+        }
+
+        if (showToysMenu)
+        {
+            Rect rect = new Rect(mousePos.x, mousePos.y, 200, 100);
+
+            rect = GUI.Window(0, rect, ToysWindow, "Toys");
+        }
+    }
+
+    void OptionsWindow(int windowID)
+    {
+        if (GUI.Button(new Rect(1, 20, 100, 20), "Give Treat"))
+        {
+            catStats.hasTreat = true;
+            showOptionsMenu = false;
+            Debug.Log("Treat Given");
+        }
+        else if(GUI.Button(new Rect(1, 40, 100, 20), "Give Toy"))
+        {
+            showToysMenu = true;
+            showOptionsMenu = false;
+        }
+    }
+
+    void ToysWindow(int windowID)
+    {
+        if(GUI.Button(new Rect(1,20,100,20), "Yarn"))
+        {
+            showToysMenu = false;
+            catStats.GiveToy("Yarn");
+        }
+    }
+
+    void CheckBools()
+    {
+
     }
 }
