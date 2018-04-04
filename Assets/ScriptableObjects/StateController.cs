@@ -92,13 +92,6 @@ public class StateController : MonoBehaviour
         }
     }
 
-    private void OnMouseExit()
-    {
-        //mouseOver = false;
-        //mouseClick = false;
-        Debug.Log("MouseOver is no longer true");
-    }
-
     private void OnGUI()
     {
         if (showOptionsMenu)
