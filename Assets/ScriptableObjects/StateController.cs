@@ -23,10 +23,7 @@ public class StateController : MonoBehaviour
 
     private bool aiActive;
     private int stateTimeElapsed;
-
-    private bool mouseOver = false;
     private Vector3 mousePos;
-    private bool mouseClick = false;
 
     private bool showToysMenu = false;
     private bool showOptionsMenu = false;
@@ -52,11 +49,6 @@ public class StateController : MonoBehaviour
 
         //check if AI is active first
         currentState.UpdateState(this);
-
-        if (catStats.hasTreat)
-        {
-            treatCounter++;
-        }
 
         if (showToysMenu)
         {
@@ -94,15 +86,10 @@ public class StateController : MonoBehaviour
     // everytihng below is buggy but works!
     private void OnMouseOver()
     {
-        mouseOver = true;
-
         if (Input.GetMouseButton(0))
         {
-            mouseClick = true;
+            showOptionsMenu = true;
         }
-        
-        mousePos = Input.mousePosition;
-        Debug.Log("MouseOver happened and is true");
     }
 
     private void OnMouseExit()
@@ -114,22 +101,17 @@ public class StateController : MonoBehaviour
 
     private void OnGUI()
     {
-        if(mouseOver && mouseClick)
-        {
-            showOptionsMenu = true;
-        }
-
         if (showOptionsMenu)
         {
 
-            Rect rect = new Rect(gameObject.transform.position.x, gameObject.transform.position.y, 200, 100);
+            Rect rect = new Rect(gameObject.transform.position.x, gameObject.transform.position.y, 100, 100);
 
             rect = GUI.Window(0, rect, OptionsWindow, "Options");
         }
 
         if (showToysMenu)
         {
-            Rect rect = new Rect(mousePos.x, mousePos.y, 200, 100);
+            Rect rect = new Rect(gameObject.transform.position.x, gameObject.transform.position.y, 100, 100);
 
             rect = GUI.Window(0, rect, ToysWindow, "Toys");
         }
@@ -139,23 +121,47 @@ public class StateController : MonoBehaviour
     {
         if (GUI.Button(new Rect(1, 20, 100, 20), "Give Treat"))
         {
-            catStats.hasTreat = true;
             showOptionsMenu = false;
+            catStats.hasTreat = true;
             Debug.Log("Treat Given");
         }
         else if(GUI.Button(new Rect(1, 40, 100, 20), "Give Toy"))
         {
-            showToysMenu = true;
             showOptionsMenu = false;
+            showToysMenu = true;
+        }
+        else if(GUI.Button(new Rect(1, 60, 100, 20), "Pet"))
+        {
+            showOptionsMenu = false;
+            catStats.isPet = true;
         }
     }
 
     void ToysWindow(int windowID)
     {
-        if(GUI.Button(new Rect(1,20,100,20), "Yarn"))
+        if(GUI.Button(new Rect(1, 20, 100, 20), "Yarn"))
         {
             showToysMenu = false;
             catStats.GiveToy("Yarn");
+            catStats.CheckToy();
+        }
+        else if(GUI.Button(new Rect(1, 40, 100, 20), "Mouse"))
+        {
+            showToysMenu = false;
+            catStats.GiveToy("Mouse");
+            catStats.CheckToy();
+        }
+        else if (GUI.Button(new Rect(1, 60, 100, 20), "Ball"))
+        {
+            showToysMenu = false;
+            catStats.GiveToy("Ball");
+            catStats.CheckToy();
+        }
+        else if (GUI.Button(new Rect(1, 80, 100, 20), "Feather"))
+        {
+            showToysMenu = false;
+            catStats.GiveToy("Feather");
+            catStats.CheckToy();
         }
     }
 

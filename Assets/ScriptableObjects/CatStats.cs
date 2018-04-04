@@ -27,6 +27,7 @@ public class CatStats : ScriptableObject {
     public Toys currentToy;
     public bool hasFavToy = false;
     public bool hasTreat = false;
+    public bool isPet = false;
 
     public CatStats(string identifier, string favToy)
     {
