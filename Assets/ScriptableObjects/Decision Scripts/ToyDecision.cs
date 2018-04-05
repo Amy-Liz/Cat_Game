@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "PluggableAI/Decision/Toy")]
 public class ToyDecision : Decision {
 
     public override bool Decide(StateController controller)
@@ -11,7 +12,6 @@ public class ToyDecision : Decision {
 
     private bool CheckToyStatus(StateController controller)
     {
-
         controller.catStats.CheckToy();
 
         if (controller.catStats.hasFavToy)

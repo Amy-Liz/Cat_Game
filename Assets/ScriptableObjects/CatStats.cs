@@ -24,7 +24,7 @@ public class CatStats : ScriptableObject {
     // initially no noise
     public bool loudNoise = false;
     public bool hasToy = false;
-    public Toys currentToy;
+    public Toys currentToy = Toys.none;
     public bool hasFavToy = false;
     public bool hasTreat = false;
     public bool isPet = false;
@@ -39,14 +39,14 @@ public class CatStats : ScriptableObject {
     {
         if (hasToy)
         {
-            if(currentToy == favToy)
+            if (currentToy == favToy)
             {
                 hasFavToy = true;
             }
         }
 
         // special case for friendly agent with no fav
-        if(hasToy && favToy == Toys.none)
+        if (hasToy && favToy == Toys.none)
         {
             hasFavToy = true;
         }
@@ -54,7 +54,8 @@ public class CatStats : ScriptableObject {
 
     public void GiveToy(string toy)
     {
-        currentToy = (Toys)Enum.Parse(typeof(Toys), toy);
+        hasToy = true;
+        currentToy = (Toys)Enum.Parse(typeof(Toys), toy.ToLower());
     }
 }
 
