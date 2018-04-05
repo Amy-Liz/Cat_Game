@@ -23,7 +23,6 @@ public class State : ScriptableObject
         {
             actions[i].Act(controller);
         }
-
     }
 
     // iterates over transitions, if decision true then transition

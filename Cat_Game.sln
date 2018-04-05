@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cat_Game", "Cat_Game.csproj", "{943F7339-5249-17AA-3F2B-9FFA3B0C0EF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "..\Testing\Testing.csproj", "{6A721EF6-72FC-4B54-B3D2-DF3917B6BFE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{943F7339-5249-17AA-3F2B-9FFA3B0C0EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{943F7339-5249-17AA-3F2B-9FFA3B0C0EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{943F7339-5249-17AA-3F2B-9FFA3B0C0EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A721EF6-72FC-4B54-B3D2-DF3917B6BFE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A721EF6-72FC-4B54-B3D2-DF3917B6BFE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A721EF6-72FC-4B54-B3D2-DF3917B6BFE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A721EF6-72FC-4B54-B3D2-DF3917B6BFE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
