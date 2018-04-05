@@ -22,9 +22,9 @@ public class CatStats : ScriptableObject {
     // always start unoccupied
     public bool isOccupied = false;
     // initially no noise
-    public bool loudNoise = false;
+    public bool isDistressed = false;
     public bool hasToy = false;
-    public Toys currentToy = Toys.none;
+    private Toys currentToy;
     public bool hasFavToy = false;
     public bool hasTreat = false;
     public bool isPet = false;

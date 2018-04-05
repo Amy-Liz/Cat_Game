@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Name: Distress
   m_EditorClassIdentifier: 
   actions: []
-  sceneGizmoColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  transitions:
+  - decision: {fileID: 11400000, guid: 8349abb7eef1adf4f8098011f2cc7fe9, type: 2}
+    trueState: {fileID: 11400000, guid: bf22acc9167de444298c0ff09744d452, type: 2}
+    falseState: {fileID: 11400000, guid: 754dce196df9c104f862a9d195f793a0, type: 2}
+  sceneGizmoColour: {r: 1, g: 0, b: 0, a: 1}

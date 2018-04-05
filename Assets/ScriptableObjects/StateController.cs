@@ -65,6 +65,8 @@ public class StateController : MonoBehaviour
         }
     }
 
+    #region GUI
+
     private void OnMouseOver()
     {
         if (Input.GetMouseButton(0))
@@ -96,6 +98,17 @@ public class StateController : MonoBehaviour
         {
             showOptionsMenu = false;
             catStats.hasTreat = true;
+
+            if (catStats.hasToy)
+            {
+                catStats.hasToy = false;
+                catStats.hasFavToy = false;
+            }
+
+            if (catStats.isPet)
+            {
+                catStats.isPet = false;
+            }
         }
 
         if (GUI.Button(new Rect(1, 40, 100, 20), "Give Toy"))
@@ -108,6 +121,13 @@ public class StateController : MonoBehaviour
         {
             showOptionsMenu = false;
             catStats.isPet = true;
+            catStats.hasTreat = false;
+
+            if (catStats.hasToy)
+            {
+                catStats.hasToy = false;
+                catStats.hasFavToy = false;
+            }
         }
     }
 
@@ -117,31 +137,55 @@ public class StateController : MonoBehaviour
         {
             showToysMenu = false;
             catStats.GiveToy("Yarn");
+
+            UpdateOnToy();
         }
 
         if(GUI.Button(new Rect(1, 40, 100, 20), "Mouse"))
         {
             showToysMenu = false;
             catStats.GiveToy("Mouse");
+
+            UpdateOnToy();
         }
 
         if(GUI.Button(new Rect(1, 60, 100, 20), "Ball"))
         {
             showToysMenu = false;
             catStats.GiveToy("Ball");
+
+            UpdateOnToy();
         }
 
         if(GUI.Button(new Rect(1, 80, 100, 20), "Feather"))
         {
             showToysMenu = false;
             catStats.GiveToy("Feather");
+
+            UpdateOnToy();
         }
 
         catStats.CheckToy();
     }
 
-    void CheckBools()
+    private void UpdateOnToy()
     {
+        if (catStats.isPet)
+        {
+            catStats.isPet = false;
+        }
 
+        if (catStats.hasTreat)
+        {
+            catStats.hasTreat = false;
+        }
+
+        // quick fix for friendly agent, will change in future
+        if(catStats.favToy.ToString() == "none")
+        {
+            catStats.isDistressed = false;
+        }
     }
+
+    #endregion
 }

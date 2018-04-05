@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "PluggableAI/Decision/Loud Nouse")]
 public class LoudNoiseDecision : Decision {
 
     public override bool Decide(StateController controller)
     {
-        return false;
+        return controller.catStats.isDistressed;
     }
 }
  

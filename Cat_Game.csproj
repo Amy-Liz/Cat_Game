@@ -291,10 +291,12 @@
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LookDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LoudNoiseDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\ToyDecision.cs" />
+    <Compile Include="Assets\ScriptableObjects\Decision Scripts\TreatDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\State.cs" />
     <Compile Include="Assets\ScriptableObjects\StateController.cs" />
     <Compile Include="Assets\ScriptableObjects\Transition.cs" />
     <Compile Include="Assets\Scripts\AgentManager.cs" />
+    <Compile Include="Assets\Scripts\LoudNoiseController.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
