@@ -291,6 +291,7 @@
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\FavouriteToyDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LookDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LoudNoiseDecision.cs" />
+    <Compile Include="Assets\ScriptableObjects\Decision Scripts\NonFavToyDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\ToyDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\TreatDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\State.cs" />

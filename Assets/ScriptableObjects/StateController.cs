@@ -130,6 +130,12 @@ public class StateController : MonoBehaviour
         {
             showToysMenu = false;
             catStats.GiveToy("Yarn");
+
+            if(gameObject.tag == "Timid")
+            {
+                // removes timid agent from distressed state
+                catStats.UpdateDistress();
+            }
         }
 
         if(GUI.Button(new Rect(1, 40, 100, 20), "Mouse"))

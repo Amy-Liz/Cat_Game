@@ -52,6 +52,16 @@ public class CatStats : ScriptableObject {
         }
     }
 
+    public bool CheckNonFavToy()
+    {
+        if(hasToy && currentToy != favToy)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public void GiveToy(string toy)
     {
         hasToy = true;
@@ -68,7 +78,7 @@ public class CatStats : ScriptableObject {
         }
 
         // quick fix for friendly agent, will change in future
-        if (favToy.ToString() == "none")
+        if (favToy.ToString().ToLower() == "none")
         {
             isDistressed = false;
         }
