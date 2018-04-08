@@ -288,6 +288,7 @@
     <Compile Include="Assets\ScriptableObjects\Action Scripts\RoamAction.cs" />
     <Compile Include="Assets\ScriptableObjects\CatStats.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\Decision.cs" />
+    <Compile Include="Assets\ScriptableObjects\Decision Scripts\FavouriteToyDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LookDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LoudNoiseDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\ToyDecision.cs" />

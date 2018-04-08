@@ -7,7 +7,7 @@ public class LoudNoiseDecision : Decision {
 
     public override bool Decide(StateController controller)
     {
-        return controller.catStats.isDistressed;
+        return controller.catStats.GetDistressStatus();
     }
 }
  

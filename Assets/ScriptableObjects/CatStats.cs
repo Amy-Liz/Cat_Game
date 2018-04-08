@@ -20,14 +20,14 @@ public class CatStats : ScriptableObject {
     public Toys favToy;
 
     // always start unoccupied
-    public bool isOccupied = false;
+    private bool isOccupied = false;
     // initially no noise
-    public bool isDistressed = false;
-    public bool hasToy = false;
+    private bool isDistressed = false;
+    private bool hasToy = false;
     private Toys currentToy;
-    public bool hasFavToy = false;
-    public bool hasTreat = false;
-    public bool isPet = false;
+    private bool hasFavToy = false;
+    private bool hasTreat = false;
+    private bool isPet = false;
 
     public CatStats(string identifier, string favToy)
     {
@@ -56,6 +56,95 @@ public class CatStats : ScriptableObject {
     {
         hasToy = true;
         currentToy = (Toys)Enum.Parse(typeof(Toys), toy.ToLower());
+
+        if (isPet)
+        {
+            isPet = false;
+        }
+
+        if (hasTreat)
+        {
+            hasTreat = false;
+        }
+
+        // quick fix for friendly agent, will change in future
+        if (favToy.ToString() == "none")
+        {
+            isDistressed = false;
+        }
+    }
+
+    public void GiveTreat()
+    {
+        hasTreat = true;
+
+        if (hasToy)
+        {
+            hasToy = false;
+            hasFavToy = false;
+        }
+
+        if (isPet)
+        {
+            isPet = false;
+        }
+    }
+
+    public void PetCat()
+    {
+        isPet = true;
+        hasTreat = false;
+
+        if (hasToy)
+        {
+            hasToy = false;
+            hasFavToy = false;
+        }
+    }
+
+    public void UpdateDistress()
+    {
+        isDistressed = !isDistressed;
+    }
+
+    public bool GetTreatStatus()
+    {
+        return hasTreat;
+    }
+
+    public bool GetToyStatus()
+    {
+        return hasToy;
+    }
+
+    public bool GetFavToyStatus()
+    {
+        return hasFavToy;
+    }
+
+    public bool GetDistressStatus()
+    {
+        return isDistressed;
+    }
+
+    public void OnLoudNoise()
+    {
+        isDistressed = true;
+
+        if (hasToy)
+        {
+            hasToy = false;
+        }
+
+        if (hasFavToy)
+        {
+            hasFavToy = false;
+        }
+
+        if (hasTreat)
+        {
+            hasTreat = false;
+        }
     }
 }
 

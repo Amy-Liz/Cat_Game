@@ -14,12 +14,6 @@ public class ToyDecision : Decision {
     {
         controller.catStats.CheckToy();
 
-        if (controller.catStats.hasFavToy)
-        {
-            return true;
-        }
-
-        // not fav
-        return false;
+        return controller.catStats.GetToyStatus();
     }
 }

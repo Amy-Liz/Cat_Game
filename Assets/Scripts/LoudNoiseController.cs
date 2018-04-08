@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class LoudNoiseController : MonoBehaviour
 {
-
-
 	// Use this for initialization
 	void Start () {
 		
@@ -25,31 +23,8 @@ public class LoudNoiseController : MonoBehaviour
 
             for(int i = 0; i < cats.Length; i++)
             {
-                UpdateBools(cats[i]);
+                cats[i].OnLoudNoise();
             }
-        }
-    }
-
-    private void UpdateBools(CatStats current)
-    {
-
-        Debug.Log("agent: " + current.name);
-
-        current.isDistressed = true;
-
-        if (current.hasToy)
-        {
-            current.hasToy = false;
-        }
-
-        if (current.hasFavToy)
-        {
-            current.hasFavToy = false;
-        }
-
-        if (current.hasTreat)
-        {
-            current.hasTreat = false;
         }
     }
 }
