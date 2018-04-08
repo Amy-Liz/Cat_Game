@@ -9,14 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdf77e858a9c3a64bb82b91bfdf84f30, type: 3}
-  m_Name: Joy
+  m_Name: Distress
   m_EditorClassIdentifier: 
   actions: []
   transitions:
   - decision: {fileID: 11400000, guid: 8349abb7eef1adf4f8098011f2cc7fe9, type: 2}
     trueState: {fileID: 11400000, guid: bf22acc9167de444298c0ff09744d452, type: 2}
-    falseState: {fileID: 11400000, guid: 754dce196df9c104f862a9d195f793a0, type: 2}
-  - decision: {fileID: 11400000, guid: 3263930c8645c664e97357e31d6605cf, type: 2}
-    trueState: {fileID: 11400000, guid: a4c3270c76c3a2541a6fc8338800bc46, type: 2}
-    falseState: {fileID: 11400000, guid: 754dce196df9c104f862a9d195f793a0, type: 2}
-  sceneGizmoColour: {r: 0.9448277, g: 1, b: 0, a: 1}
+    falseState: {fileID: 11400000, guid: 6bddd3a70332bf94abda166ac958e671, type: 2}
+  sceneGizmoColour: {r: 1, g: 0, b: 0, a: 1}

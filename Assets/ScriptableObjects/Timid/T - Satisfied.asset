@@ -9,8 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdf77e858a9c3a64bb82b91bfdf84f30, type: 3}
-  m_Name: RaminState
+  m_Name: T - Satisfied
   m_EditorClassIdentifier: 
   actions: []
-  transitions: []
-  sceneGizmoColour: {r: 0.09347964, g: 0.97794116, b: 0.3557682, a: 1}
+  transitions:
+  - decision: {fileID: 11400000, guid: 3263930c8645c664e97357e31d6605cf, type: 2}
+    trueState: {fileID: 11400000, guid: 1d74141da92670d42840ed38ede76181, type: 2}
+    falseState: {fileID: 11400000, guid: 98990c81dcf6b0f45adae876b4972763, type: 2}
+  sceneGizmoColour: {r: 1, g: 0.76590204, b: 0.18295847, a: 1}

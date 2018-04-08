@@ -227,8 +227,8 @@ GameObject:
   - component: {fileID: 173083251}
   - component: {fileID: 173083252}
   m_Layer: 0
-  m_Name: Cat 1
-  m_TagString: Agent
+  m_Name: Friendly
+  m_TagString: Friendly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: be631bcb62e65494d9430cba009a7a23, type: 2}
-  remainState: {fileID: 11400000, guid: 754dce196df9c104f862a9d195f793a0, type: 2}
+  remainState: {fileID: 11400000, guid: 6bddd3a70332bf94abda166ac958e671, type: 2}
   catStats: {fileID: 0}
   catName: Jeff
   favToy: none
@@ -1176,9 +1176,10 @@ GameObject:
   - component: {fileID: 2002445560}
   - component: {fileID: 2002445559}
   - component: {fileID: 2002445563}
+  - component: {fileID: 2002445564}
   m_Layer: 0
-  m_Name: Cat 2
-  m_TagString: Agent
+  m_Name: Timid
+  m_TagString: Timid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1261,13 +1262,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ade47c6d264e3849a6677515e01ce7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
-  remainState: {fileID: 0}
+  currentState: {fileID: 11400000, guid: 1d74141da92670d42840ed38ede76181, type: 2}
+  remainState: {fileID: 11400000, guid: 98990c81dcf6b0f45adae876b4972763, type: 2}
   catStats: {fileID: 0}
-  catName: 
-  favToy: 
+  catName: Bob
+  favToy: yarn
   eyes: {fileID: 979835934}
   wayPointList: []
   nextWayPoint: 0
   navMeshAgent: {fileID: 0}
   persueTarget: {fileID: 0}
+--- !u!195 &2002445564
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002445558}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

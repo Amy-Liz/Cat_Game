@@ -33,6 +33,11 @@ public class StateController : MonoBehaviour
         navMeshAgent.enabled = true;
         aiActive = true;
         catStats = new CatStats(catName, favToy);
+
+        if(gameObject.tag == "Timid")
+        {
+            catStats.isDistressed = true;
+        }
     }
 
     // Update is called once per frame
@@ -108,6 +113,11 @@ public class StateController : MonoBehaviour
             if (catStats.isPet)
             {
                 catStats.isPet = false;
+            }
+
+            if(gameObject.tag == "Timid")
+            {
+                catStats.isDistressed = false;
             }
         }
 

@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoudNoiseController : MonoBehaviour {
+public class LoudNoiseController : MonoBehaviour
+{
 
-    private StateController[] controllers = new StateController[3];
 
 	// Use this for initialization
 	void Start () {
@@ -20,12 +21,35 @@ public class LoudNoiseController : MonoBehaviour {
     {
         if(GUI.Button(new Rect(0,0,100,20), "BANG"))
         {
-            StateController[] controllers = FindObjectsOfType<StateController>();
+            CatStats[] cats = FindObjectsOfType<CatStats>();
 
-            for(int i = 0; i < controllers.Length; i++)
+            for(int i = 0; i < cats.Length; i++)
             {
-                controllers[i].catStats.isDistressed = true;
+                UpdateBools(cats[i]);
             }
+        }
+    }
+
+    private void UpdateBools(CatStats current)
+    {
+
+        Debug.Log("agent: " + current.name);
+
+        current.isDistressed = true;
+
+        if (current.hasToy)
+        {
+            current.hasToy = false;
+        }
+
+        if (current.hasFavToy)
+        {
+            current.hasFavToy = false;
+        }
+
+        if (current.hasTreat)
+        {
+            current.hasTreat = false;
         }
     }
 }

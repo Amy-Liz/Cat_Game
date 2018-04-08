@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdf77e858a9c3a64bb82b91bfdf84f30, type: 3}
-  m_Name: RaminState
+  m_Name: F - Remain
   m_EditorClassIdentifier: 
   actions: []
   transitions: []
-  sceneGizmoColour: {r: 0.09347964, g: 0.97794116, b: 0.3557682, a: 1}
+  sceneGizmoColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
