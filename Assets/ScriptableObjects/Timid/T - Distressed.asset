@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf77e858a9c3a64bb82b91bfdf84f30, type: 3}
   m_Name: T - Distressed
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: fb9e12d4e5d6db742b927117afb019d5, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 6d82a91cd9097774e9ed90b10064b7fd, type: 2}
     trueState: {fileID: 11400000, guid: 187f12e6fb808d548b8525b4c5b85916, type: 2}
