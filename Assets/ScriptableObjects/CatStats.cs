@@ -30,7 +30,8 @@ public class CatStats : ScriptableObject {
     private bool hasFavToy = false;
     private bool hasTreat = false;
     private bool isPet = false;
-    private bool willPlay = true;
+    private bool inMoodToPlay = false;
+    public bool hasResponse = false;
 
     public CatStats(string identifier, string favToy)
     {
@@ -142,12 +143,12 @@ public class CatStats : ScriptableObject {
 
     public bool GetWillPlayStatus()
     {
-        return willPlay;
+        return inMoodToPlay;
     }
 
     public void SetWillPlayStatus(bool value)
     {
-        willPlay = value;
+        inMoodToPlay = value;
     }
 
     public void OnLoudNoise()
@@ -168,6 +169,11 @@ public class CatStats : ScriptableObject {
         {
             hasTreat = false;
         }
+    }
+
+    public bool RespondToPlayRequest()
+    {
+        return inMoodToPlay;
     }
 }
 

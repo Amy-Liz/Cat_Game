@@ -12,18 +12,17 @@ public class LookAction : Action {
 
     private void Look(StateController controller)
     {
-        RaycastHit hit;
-        float radius = 5f;
-        float range = 50f;
+        int agentLayer = 1 << LayerMask.NameToLayer("Timid Agent");
 
-        // so we can see in debug
-        Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * range, Color.green);
+        Collider[] colliders = Physics.OverlapSphere(controller.gameObject.transform.position, 20f, agentLayer);
 
-        if (Physics.SphereCast(controller.eyes.position, radius, controller.eyes.forward, out hit, range) && (hit.collider.CompareTag("Agent")))
+        for(int i = 0; i < colliders.Length; i++)
         {
-            //found target
-            Debug.Log("Target seen");
-            controller.targetSeen = true;
+            if(colliders[i].CompareTag("Timid"))
+            {
+                controller.targetSeen = true;
+                controller.target = colliders[i].transform;
+            }
         }
     }
 }

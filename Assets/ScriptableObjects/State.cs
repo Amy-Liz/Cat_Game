@@ -9,7 +9,6 @@ public class State : ScriptableObject
     public Action[] actions;
     public Transition[] transitions;
     public Color sceneGizmoColour = Color.gray;
-    public string stateName;
 
     public void UpdateState(StateController controller)
     {
@@ -32,13 +31,13 @@ public class State : ScriptableObject
         for (int i = 0; i < transitions.Length; i++)
         {
             // true if transition, false if not
-            bool decisionSucceeded = transitions[i].decision.Decide(stateController);
+            bool? decisionSucceeded = transitions[i].decision.Decide(stateController);
 
-            if (decisionSucceeded)
+            if (decisionSucceeded.ToString() == "True")
             {
                 stateController.TransitionToState(transitions[i].trueState);
             }
-           else
+            else if (decisionSucceeded.ToString() == "False")
             {
                 stateController.TransitionToState(transitions[i].falseState);
             }

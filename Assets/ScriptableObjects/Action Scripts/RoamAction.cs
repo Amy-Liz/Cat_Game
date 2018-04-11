@@ -12,21 +12,11 @@ public class RoamAction : Action
 
     private void Roam(StateController controller)
     {
-        if(controller.targetSeen)
-        {
-            // stop
-            controller.navMeshAgent.isStopped = true;
-            // ask to play
-        }
-        else
-        {
-            controller.navMeshAgent.destination = controller.wayPointList[controller.nextWayPoint].position;
-            controller.navMeshAgent.isStopped = false;
+        controller.navMeshAgent.destination = controller.wayPointList[controller.nextWayPoint].position;
 
-            if (controller.navMeshAgent.remainingDistance <= controller.navMeshAgent.stoppingDistance && !controller.navMeshAgent.pathPending)
-            {
-                controller.nextWayPoint = (controller.nextWayPoint + 1) % controller.wayPointList.Count;
-            }
+        if (controller.navMeshAgent.remainingDistance <= controller.navMeshAgent.stoppingDistance && !controller.navMeshAgent.pathPending)
+        {
+            controller.nextWayPoint = (controller.nextWayPoint + 1) % controller.wayPointList.Count;
         }
     }
 }

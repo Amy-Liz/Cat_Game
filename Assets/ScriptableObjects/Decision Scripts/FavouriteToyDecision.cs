@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decision/FavToy")]
 public class FavouriteToyDecision : Decision
 {
-    public override bool Decide(StateController controller)
+    public override bool? Decide(StateController controller)
     {
         return CheckFavToyStatus(controller);
     }

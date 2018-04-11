@@ -10,18 +10,16 @@ public class StateController : MonoBehaviour
     public CatStats catStats;
     public string catName;
     public string favToy;
-
-    // eyes of agent
-    public Transform eyes;
+    public Canvas[] canvases;
+    public ParticleSystem[] particles;
 
     // points to roam between
     public List<Transform> wayPointList;
     public int nextWayPoint;
     public NavMeshAgent navMeshAgent;
-    public Transform persueTarget;
+    public Transform target;
     public bool targetSeen = false;
 
-    private bool aiActive;
     private int stateTimeElapsed;
 
     private bool showToysMenu = false;
@@ -32,33 +30,70 @@ public class StateController : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.enabled = true;
-        aiActive = true;
+        navMeshAgent.isStopped = false;
         catStats = new CatStats(catName, favToy);
+
+        // no messages on start
+        for(int i = 0; i < canvases.Length; i++)
+        {
+            canvases[i].enabled = false;
+        }
 
         if(gameObject.tag == "Timid")
         {
             catStats.UpdateDistress();
+        }
+
+        for (int i = 0; i < particles.Length; i++)
+        {
+            particles[i].Pause();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!aiActive)
+        Debug.Log(currentState.name);
+
+        if(currentState.name.Contains("Joy"))
         {
-            return;
+            Debug.Log("only joy should be showing");
+            particles[0].Play();
+        }
+        else if(currentState.name.Contains("Love"))
+        {
+            particles[1].Play();
+        }
+        else if(currentState.name.Contains("Distress"))
+        {
+            particles[2].Play();
+        }
+        else if(currentState.name.Contains("Satisfied"))
+        {
+            particles[3].Play();
+        }
+        else if(currentState.name.Contains("Disappointed"))
+        {
+            particles[4].Play();
         }
 
-        //check if AI is active first
+        SetAgentPlayStatus();
+
+        if (catStats.hasResponse)
+        {
+            catStats.hasResponse = false;
+            navMeshAgent.isStopped = false;
+        }
+
         currentState.UpdateState(this);
     }
 
     void OnDrawGizmos()
     {
-        if (currentState != null && eyes != null)
+        if (currentState != null)
         {
             Gizmos.color = currentState.sceneGizmoColour;
-            Gizmos.DrawWireSphere(eyes.position, 10f);
+            Gizmos.DrawWireSphere(gameObject.transform.position, 10f);
         }
     }
 
@@ -71,9 +106,18 @@ public class StateController : MonoBehaviour
         }
     }
 
+    public void StopNavMeshAgent()
+    {
+        navMeshAgent.isStopped = true;
+    }
+
     public void SetAgentPlayStatus()
     {
-        // set willPlay depending on current state. Compare state names and make true/false depending 
+        // will play in Joy or Satisfied states 
+        if(currentState.name.Contains("Joy") || currentState.name.Contains("Satisfied"))
+        {
+            catStats.SetWillPlayStatus(true);
+        }
     }
 
     #region GUI

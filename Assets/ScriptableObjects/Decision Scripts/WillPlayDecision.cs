@@ -5,19 +5,22 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/WillPlay")]
 public class WillPlayDecision : Decision {
 
-    public override bool Decide(StateController controller)
+    public override bool? Decide(StateController controller)
     {
-        CatStats[] cats = FindObjectsOfType<CatStats>();
-        bool playDecision = false;
+        bool? playDecision = null;
 
+        if (controller.catStats.hasResponse)
+        {
+
+        CatStats[] cats = FindObjectsOfType<CatStats>();
         for (int i = 0; i < cats.Length; i++)
         {
-            Debug.Log(cats[i].identifier);
 
-            if (cats[i].identifier == controller.persueTarget.gameObject.tag)
+            if (cats[i].identifier == controller.target.gameObject.tag)
             {
                 playDecision = cats[i].GetWillPlayStatus();
             }
+        }
         }
 
         return playDecision;
