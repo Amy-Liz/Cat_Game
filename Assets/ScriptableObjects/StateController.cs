@@ -48,37 +48,19 @@ public class StateController : MonoBehaviour
         {
             particles[i].Pause();
         }
+
+        DisplayParticles();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentState.name);
 
-        if(currentState.name.Contains("Joy"))
-        {
-            Debug.Log("only joy should be showing");
-            particles[0].Play();
-        }
-        else if(currentState.name.Contains("Love"))
-        {
-            particles[1].Play();
-        }
-        else if(currentState.name.Contains("Distress"))
-        {
-            particles[2].Play();
-        }
-        else if(currentState.name.Contains("Satisfied"))
-        {
-            particles[3].Play();
-        }
-        else if(currentState.name.Contains("Disappointed"))
-        {
-            particles[4].Play();
-        }
+        DisplayParticles();
 
         SetAgentPlayStatus();
 
+        // update access modifier
         if (catStats.hasResponse)
         {
             catStats.hasResponse = false;
@@ -118,6 +100,46 @@ public class StateController : MonoBehaviour
         {
             catStats.SetWillPlayStatus(true);
         }
+    }
+
+    private void DisplayParticles()
+    {
+        if (currentState.name.Contains("Joy"))
+        {
+            Debug.Log("only joy should be showing");
+            UpdateParticles(0);
+        }
+        else if (currentState.name.Contains("Love"))
+        {
+            UpdateParticles(1);
+        }
+        else if (currentState.name.Contains("Distress"))
+        {
+            UpdateParticles(2);
+        }
+        else if (currentState.name.Contains("Satisfied"))
+        {
+            UpdateParticles(3);
+        }
+        else if (currentState.name.Contains("Disappointed"))
+        {
+            UpdateParticles(4);
+        }
+    }
+
+    private void UpdateParticles(int index)
+    {
+        particles[index].Play();
+
+        for(int i = 0; i < particles.Length; i++)
+        {
+            if(i != index)
+            {
+                particles[i].Pause();
+                particles[i].Clear();
+            }
+        }
+
     }
 
     #region GUI
