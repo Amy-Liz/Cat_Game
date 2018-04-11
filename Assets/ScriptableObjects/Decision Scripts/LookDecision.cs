@@ -14,8 +14,8 @@ public class LookDecision : Decision
     {
 
         RaycastHit hit;
-        float radius = 1f;
-        float range = 10f;
+        float radius = 5f;
+        float range = 50f;
 
         // so we can see in debug
         Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * range, Color.green);
@@ -23,6 +23,7 @@ public class LookDecision : Decision
         if(Physics.SphereCast(controller.eyes.position, radius, controller.eyes.forward, out hit, range) && (hit.collider.CompareTag("Agent")))
         {
             //found target
+            Debug.Log("Target seen");
             controller.persueTarget = hit.transform;
             return true;
         }

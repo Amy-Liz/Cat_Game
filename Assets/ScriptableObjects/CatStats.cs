@@ -16,6 +16,8 @@ public class CatStats : ScriptableObject {
         none,
     };
 
+    //TODO: Properties
+
     public string identifier; //name
     public Toys favToy;
 
@@ -28,6 +30,7 @@ public class CatStats : ScriptableObject {
     private bool hasFavToy = false;
     private bool hasTreat = false;
     private bool isPet = false;
+    private bool willPlay = true;
 
     public CatStats(string identifier, string favToy)
     {
@@ -135,6 +138,16 @@ public class CatStats : ScriptableObject {
     public bool GetDistressStatus()
     {
         return isDistressed;
+    }
+
+    public bool GetWillPlayStatus()
+    {
+        return willPlay;
+    }
+
+    public void SetWillPlayStatus(bool value)
+    {
+        willPlay = value;
     }
 
     public void OnLoudNoise()

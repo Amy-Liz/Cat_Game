@@ -19,6 +19,7 @@ public class StateController : MonoBehaviour
     public int nextWayPoint;
     public NavMeshAgent navMeshAgent;
     public Transform persueTarget;
+    public bool targetSeen = false;
 
     private bool aiActive;
     private int stateTimeElapsed;
@@ -68,6 +69,11 @@ public class StateController : MonoBehaviour
             // change states
             currentState = nextState;
         }
+    }
+
+    public void SetAgentPlayStatus()
+    {
+        // set willPlay depending on current state. Compare state names and make true/false depending 
     }
 
     #region GUI

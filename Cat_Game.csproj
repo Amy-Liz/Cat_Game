@@ -284,9 +284,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ScriptableObjects\Action Scripts\Action.cs" />
+    <Compile Include="Assets\ScriptableObjects\Action Scripts\LookAction.cs" />
     <Compile Include="Assets\ScriptableObjects\Action Scripts\PersueAction.cs" />
     <Compile Include="Assets\ScriptableObjects\Action Scripts\RoamAction.cs" />
     <Compile Include="Assets\ScriptableObjects\CatStats.cs" />
+    <Compile Include="Assets\ScriptableObjects\Decision Scripts\ActiveStateDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\Decision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\FavouriteToyDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LookDecision.cs" />
@@ -294,6 +296,7 @@
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\NonFavToyDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\ToyDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\TreatDecision.cs" />
+    <Compile Include="Assets\ScriptableObjects\Decision Scripts\WillPlayDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\State.cs" />
     <Compile Include="Assets\ScriptableObjects\StateController.cs" />
     <Compile Include="Assets\ScriptableObjects\Transition.cs" />
