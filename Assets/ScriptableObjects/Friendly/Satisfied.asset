@@ -11,6 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf77e858a9c3a64bb82b91bfdf84f30, type: 3}
   m_Name: Satisfied
   m_EditorClassIdentifier: 
-  actions: []
-  transitions: []
+  actions:
+  - {fileID: 11400000, guid: fb9e12d4e5d6db742b927117afb019d5, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 3263930c8645c664e97357e31d6605cf, type: 2}
+    trueState: {fileID: 11400000, guid: 1f92fa44dca0c8942886ef4318c75718, type: 2}
+    falseState: {fileID: 11400000, guid: 6bddd3a70332bf94abda166ac958e671, type: 2}
+  - decision: {fileID: 11400000, guid: 6d82a91cd9097774e9ed90b10064b7fd, type: 2}
+    trueState: {fileID: 11400000, guid: be631bcb62e65494d9430cba009a7a23, type: 2}
+    falseState: {fileID: 11400000, guid: 6bddd3a70332bf94abda166ac958e671, type: 2}
   sceneGizmoColour: {r: 0.116782, g: 0.99264705, b: 0.30403584, a: 1}

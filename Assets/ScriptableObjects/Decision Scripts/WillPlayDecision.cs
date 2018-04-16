@@ -11,16 +11,14 @@ public class WillPlayDecision : Decision {
 
         if (controller.catStats.hasResponse)
         {
-
-        CatStats[] cats = FindObjectsOfType<CatStats>();
-        for (int i = 0; i < cats.Length; i++)
-        {
-
-            if (cats[i].identifier == controller.target.gameObject.tag)
+            CatStats[] cats = FindObjectsOfType<CatStats>();
+            for (int i = 0; i < cats.Length; i++)
             {
-                playDecision = cats[i].GetWillPlayStatus();
+                if (cats[i].identifier == controller.target.gameObject.tag)
+                {
+                    playDecision = cats[i].GetWillPlayStatus();
+                }
             }
-        }
         }
 
         return playDecision;

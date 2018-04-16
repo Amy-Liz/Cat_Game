@@ -287,9 +287,12 @@
     <Compile Include="Assets\ScriptableObjects\Action Scripts\LookAction.cs" />
     <Compile Include="Assets\ScriptableObjects\Action Scripts\RoamAction.cs" />
     <Compile Include="Assets\ScriptableObjects\Action Scripts\RoamToPlayAction.cs" />
+    <Compile Include="Assets\ScriptableObjects\Action Scripts\ShakeAction.cs" />
     <Compile Include="Assets\ScriptableObjects\CatStats.cs" />
+    <Compile Include="Assets\ScriptableObjects\Decision Scripts\AskedToPlayDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\Decision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\FavouriteToyDecision.cs" />
+    <Compile Include="Assets\ScriptableObjects\Decision Scripts\IsPet.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\LoudNoiseDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\NonFavToyDecision.cs" />
     <Compile Include="Assets\ScriptableObjects\Decision Scripts\ToyDecision.cs" />

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf77e858a9c3a64bb82b91bfdf84f30, type: 3}
+  m_Name: T - Admiration
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: fb9e12d4e5d6db742b927117afb019d5, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 3263930c8645c664e97357e31d6605cf, type: 2}
+    trueState: {fileID: 11400000, guid: 1d74141da92670d42840ed38ede76181, type: 2}
+    falseState: {fileID: 11400000, guid: 98990c81dcf6b0f45adae876b4972763, type: 2}
+  - decision: {fileID: 11400000, guid: cfb9cb56f7799ba48aaa868e6a2c6c5e, type: 2}
+    trueState: {fileID: 11400000, guid: 3d1a2e40524493c4b9f66abab1f68ea8, type: 2}
+    falseState: {fileID: 11400000, guid: 98990c81dcf6b0f45adae876b4972763, type: 2}
+  - decision: {fileID: 11400000, guid: a020aa77a25415240817783e357717a1, type: 2}
+    trueState: {fileID: 11400000, guid: 886fb865b188f2448a9dabab7af9ee23, type: 2}
+    falseState: {fileID: 11400000, guid: 98990c81dcf6b0f45adae876b4972763, type: 2}
+  sceneGizmoColour: {r: 0.6677487, g: 0.1397059, b: 1, a: 1}

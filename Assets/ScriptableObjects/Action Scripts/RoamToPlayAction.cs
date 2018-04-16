@@ -40,17 +40,27 @@ public class RoamToPlayAction : Action {
         // ask
         controller.canvases[0].enabled = true;
 
-        if (agentController.catStats.GetWillPlayStatus())
+        bool agentWillPlay = agentController.catStats.GetWillPlayStatus();
+
+        if (agentWillPlay)
         {
             // yes
             agentController.canvases[0].enabled = true;
+            agentController.canvases[1].enabled = false;
         }
-        else
+        else if (!agentWillPlay)
         {
             // no
             agentController.canvases[1].enabled = true;
+            agentController.canvases[0].enabled = false;
         }
 
+        Debug.Log("Agent response to play request:" + agentWillPlay);
+
+        agentController.navMeshAgent.isStopped = false;
+        controller.navMeshAgent.isStopped = false;
+
+        agentController.catStats.askedToPlay = true;
         controller.catStats.hasResponse = true;
     }
 }

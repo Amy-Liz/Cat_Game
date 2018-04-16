@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Name: F - Disappointed
   m_EditorClassIdentifier: 
   actions: []
-  transitions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: 8349abb7eef1adf4f8098011f2cc7fe9, type: 2}
+    trueState: {fileID: 11400000, guid: bf22acc9167de444298c0ff09744d452, type: 2}
+    falseState: {fileID: 11400000, guid: 6bddd3a70332bf94abda166ac958e671, type: 2}
+  - decision: {fileID: 11400000, guid: 3263930c8645c664e97357e31d6605cf, type: 2}
+    trueState: {fileID: 11400000, guid: 1f92fa44dca0c8942886ef4318c75718, type: 2}
+    falseState: {fileID: 11400000, guid: 6bddd3a70332bf94abda166ac958e671, type: 2}
   sceneGizmoColour: {r: 0.084342584, g: 0.09035315, b: 0.9558824, a: 1}

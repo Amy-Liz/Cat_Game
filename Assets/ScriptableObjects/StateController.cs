@@ -41,7 +41,7 @@ public class StateController : MonoBehaviour
 
         if(gameObject.tag == "Timid")
         {
-            catStats.UpdateDistress();
+            catStats.SetIsDistressed(true);
         }
 
         for (int i = 0; i < particles.Length; i++)
@@ -56,18 +56,11 @@ public class StateController : MonoBehaviour
     void Update()
     {
 
+        currentState.UpdateState(this);
+
         DisplayParticles();
 
         SetAgentPlayStatus();
-
-        // update access modifier
-        if (catStats.hasResponse)
-        {
-            catStats.hasResponse = false;
-            navMeshAgent.isStopped = false;
-        }
-
-        currentState.UpdateState(this);
     }
 
     void OnDrawGizmos()
@@ -88,11 +81,6 @@ public class StateController : MonoBehaviour
         }
     }
 
-    public void StopNavMeshAgent()
-    {
-        navMeshAgent.isStopped = true;
-    }
-
     public void SetAgentPlayStatus()
     {
         // will play in Joy or Satisfied states 
@@ -100,13 +88,21 @@ public class StateController : MonoBehaviour
         {
             catStats.SetWillPlayStatus(true);
         }
+        else
+        {
+            catStats.SetWillPlayStatus(false);
+        }
+    }
+
+    public void StopNavMeshAgent()
+    {
+        navMeshAgent.isStopped = true;
     }
 
     private void DisplayParticles()
     {
         if (currentState.name.Contains("Joy"))
         {
-            Debug.Log("only joy should be showing");
             UpdateParticles(0);
         }
         else if (currentState.name.Contains("Love"))
@@ -124,6 +120,11 @@ public class StateController : MonoBehaviour
         else if (currentState.name.Contains("Disappointed"))
         {
             UpdateParticles(4);
+        }
+        else if (currentState.name.Contains("Admiration"))
+        {
+            
+            UpdateParticles(5);
         }
     }
 
@@ -179,7 +180,7 @@ public class StateController : MonoBehaviour
 
             if(gameObject.tag == "Timid")
             {
-                catStats.UpdateDistress();
+                catStats.SetIsDistressed(false);
             }
         }
 
@@ -193,6 +194,11 @@ public class StateController : MonoBehaviour
         {
             showOptionsMenu = false;
             catStats.PetCat();
+
+            if(gameObject.tag == "Friendly")
+            {
+                catStats.SetIsDistressed(false);
+            }
         }
     }
 
@@ -202,12 +208,6 @@ public class StateController : MonoBehaviour
         {
             showToysMenu = false;
             catStats.GiveToy("Yarn");
-
-            if(gameObject.tag == "Timid")
-            {
-                // removes timid agent from distressed state
-                catStats.UpdateDistress();
-            }
         }
 
         if(GUI.Button(new Rect(1, 40, 100, 20), "Mouse"))
@@ -222,13 +222,11 @@ public class StateController : MonoBehaviour
             catStats.GiveToy("Ball");
         }
 
-        if(GUI.Button(new Rect(1, 80, 100, 20), "Feather"))
+        if (GUI.Button(new Rect(1, 80, 100, 20), "Feather"))
         {
             showToysMenu = false;
             catStats.GiveToy("Feather");
         }
-
-        catStats.CheckToy();
     }
 
     #endregion

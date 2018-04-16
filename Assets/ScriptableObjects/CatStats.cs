@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-public class CatStats : ScriptableObject {
-
+public class CatStats : ScriptableObject
+{
     // TODO: Hide values via get/set methods
 
     // all possible toys
@@ -21,9 +21,6 @@ public class CatStats : ScriptableObject {
     public string identifier; //name
     public Toys favToy;
 
-    // always start unoccupied
-    private bool isOccupied = false;
-    // initially no noise
     private bool isDistressed = false;
     private bool hasToy = false;
     private Toys currentToy;
@@ -32,11 +29,12 @@ public class CatStats : ScriptableObject {
     private bool isPet = false;
     private bool inMoodToPlay = false;
     public bool hasResponse = false;
+    public bool askedToPlay = false;
 
     public CatStats(string identifier, string favToy)
     {
         this.identifier = identifier;
-        this.favToy = (Toys) Enum.Parse(typeof(Toys), favToy.ToLower());
+        this.favToy = (Toys)Enum.Parse(typeof(Toys), favToy.ToLower());
     }
 
     public void CheckToy()
@@ -46,6 +44,10 @@ public class CatStats : ScriptableObject {
             if (currentToy == favToy)
             {
                 hasFavToy = true;
+            }
+            else
+            {
+                hasFavToy = false;
             }
         }
 
@@ -58,7 +60,7 @@ public class CatStats : ScriptableObject {
 
     public bool CheckNonFavToy()
     {
-        if(hasToy && currentToy != favToy)
+        if (hasToy && currentToy != favToy)
         {
             return true;
         }
@@ -81,15 +83,15 @@ public class CatStats : ScriptableObject {
             hasTreat = false;
         }
 
-        // quick fix for friendly agent, will change in future
-        if (favToy.ToString().ToLower() == "none")
+        if (askedToPlay)
         {
-            isDistressed = false;
+            askedToPlay = false;
         }
     }
 
     public void GiveTreat()
     {
+
         hasTreat = true;
 
         if (hasToy)
@@ -102,6 +104,12 @@ public class CatStats : ScriptableObject {
         {
             isPet = false;
         }
+
+        if (askedToPlay)
+        {
+            askedToPlay = false;
+        }
+
     }
 
     public void PetCat()
@@ -114,11 +122,16 @@ public class CatStats : ScriptableObject {
             hasToy = false;
             hasFavToy = false;
         }
+
+        if (askedToPlay)
+        {
+            askedToPlay = false;
+        }
     }
 
-    public void UpdateDistress()
+    public void SetIsDistressed(bool value)
     {
-        isDistressed = !isDistressed;
+        isDistressed = value;
     }
 
     public bool GetTreatStatus()
@@ -146,6 +159,11 @@ public class CatStats : ScriptableObject {
         return inMoodToPlay;
     }
 
+    public bool GetIsPetStatus()
+    {
+        return isPet;
+    }
+
     public void SetWillPlayStatus(bool value)
     {
         inMoodToPlay = value;
@@ -168,6 +186,21 @@ public class CatStats : ScriptableObject {
         if (hasTreat)
         {
             hasTreat = false;
+        }
+
+        if (hasResponse)
+        {
+            hasResponse = false;
+        }
+
+        if (askedToPlay)
+        {
+            askedToPlay = false;
+        }
+
+        if (isPet)
+        {
+            isPet = false;
         }
     }
 
